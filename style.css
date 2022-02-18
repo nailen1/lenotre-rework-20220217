@@ -1,0 +1,295 @@
+/* flipping card */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #eed891; */
+}
+.wrapper {
+  position: relative;
+  height: 330px;
+  width: 620px;
+  perspective: 1000px;
+}
+.wrapper .flip-card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #ff477e;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+}
+.wrapper:hover .flip-card {
+  transform: rotateY(180deg);
+}
+.flip-card .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #ff477e;
+  border-top: 2px solid #ff5c8a;
+  border-left: 2px solid #ff5c8a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  position: absolute;
+}
+.card span.circle,
+.card span.square {
+  height: 110px;
+  width: 110px;
+  border: 10px solid #f8edeb;
+}
+.card span.circle {
+  border-radius: 50%;
+}
+.card span.triangle {
+  position: relative;
+  height: 0;
+  width: 0;
+  border-right: 60px solid transparent;
+  border-left: 60px solid transparent;
+  border-bottom: 110px solid #f8edeb;
+  margin-right: 16px;
+}
+.card span.triangle::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: -40px;
+  top: 20px;
+  border-right: 40px solid transparent;
+  border-left: 40px solid transparent;
+  border-bottom: 80px solid #ff477e;
+}
+.back.card {
+  transform: rotateY(180deg);
+}
+.back.card .home-logo {
+  position: relative;
+  height: 65px;
+  width: 65px;
+  border: 5px solid #f8edeb;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+.home-logo .icon {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(6px);
+  display: inline-block;
+  height: 15px;
+  width: 25px;
+  background: #f8edeb;
+}
+.home-logo .icon::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  height: 25px;
+  width: 25px;
+  background: #f8edeb;
+  transform: rotate(45deg);
+}
+.back.card .num {
+  font-size: 25px;
+  font-weight: 600;
+  color: #f8edeb;
+}
+
+/* nav bar indicator  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8edeb;
+}
+.navbar {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar ul {
+  position: relative;
+  display: flex;
+}
+.navbar ul li {
+  position: relative;
+  list-style-type: none;
+}
+.navbar ul li a {
+  position: relative;
+  height: 120px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.navbar ul li a i {
+  position: absolute;
+  font-size: 38px;
+  color: #ff477e;
+}
+ul li a i.activeIcon {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+  transition-delay: 0.2s;
+}
+.navbar ul li.active a i {
+  opacity: 1;
+  pointer-events: auto;
+}
+.navbar ul .indicator {
+  position: absolute;
+  bottom: -19px;
+  left: 34px;
+  height: 36px;
+  width: 25px;
+  background: #ff477e;
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+ul .indicator::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  bottom: 50%;
+  height: 22px;
+  width: 20px;
+  background: #fff;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 10px 0 #ff477e;
+}
+ul .indicator::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: 50%;
+  height: 22px;
+  width: 20px;
+  background: #fff;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 10px 0 #ff477e;
+}
+
+footer {
+  width: 100%;
+  height: 120px;
+  position: ablsolute;
+  bottom: 0;
+  left: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  transition: all 0.4s ease;
+}
+nav.sticky {
+  padding: 15px 20px;
+  background: #4070f4;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+nav .nav-content {
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo a {
+  font-weight: 500;
+  font-size: 35px;
+  color: #4070f4;
+}
+nav.sticky .logo a {
+  color: #fff;
+}
+.nav-content .nav-links {
+  display: flex;
+}
+.nav-content .nav-links li {
+  list-style: none;
+  margin: 0 8px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #0e2431;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 4px;
+  transition: all 0.3s ease;
+}
+.nav-links li a:hover {
+  color: #4070f4;
+}
+nav.sticky .nav-links li a {
+  color: #fff;
+  transition: all 0.4s ease;
+}
+nav.sticky .nav-links li a:hover {
+  color: #0e2431;
+}
+.home {
+  height: 100vh;
+  width: 100%;
+  background: url("images/background.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+}
+h2 {
+  font-size: 30px;
+  margin-bottom: 6px;
+  color: #4070f4;
+}
+.text {
+  text-align: justify;
+  padding: 40px 80px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#titleLogo {
+  font-family: "Cormorant Garamond" serif;
+}
